@@ -4,11 +4,15 @@ import './index.css'
 import 'remixicon/fonts/remixicon.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router'
+import Home from './components/Home.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />
+    element: <App />,
+    children: [
+      { index: true, element: <Home /> }
+    ]
   }
 ]);
 
