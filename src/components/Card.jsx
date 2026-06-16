@@ -1,10 +1,12 @@
 import { useState } from "react";
 import clsx from "clsx";
+import useCartStore from "../store/useCartStore";
 
-const Card = ({ title, price, description, image }) => {
+const Card = ({ id, title, price, description, image }) => {
 	const [quantity, setQuantity] = useState(0);
+	const { addItem, items } = useCartStore();
 	return (
-		<div className="flex justify-between rounded-2xl bg-gray-100 h-55 w-90 p-3 mt-1.5">
+		<div className="shadow-md flex justify-between rounded-2xl bg-gray-100 h-55 w-90 p-3 mt-1.5">
 			<div className="flex justify-center items-center w-[40%] bg-white rounded-md">
 				<img className=" h-40" src={image} alt={title} />
 			</div>
@@ -26,7 +28,11 @@ const Card = ({ title, price, description, image }) => {
 						<button className={clsx("bg-gray-600", "cursor-pointer px-1.5 rounded-md text-white font-bold")} onClick={()=> setQuantity(quantity + 1)}>+</button>
 					</div>
 					<div>
-						<button className="bg-black text-white font-medium py-2 px-4 rounded-md cursor-pointer w-full">Add to Card</button>
+						<button onClick={()=> {
+							if (quantity === 0) return ;
+							addItem({id, title, price, quantity})
+							setQuantity(0);
+						}} className="bg-black text-white font-medium py-2 px-4 rounded-md cursor-pointer w-full">Add to Card</button>
 					</div>
 				</div>
 			</div>
