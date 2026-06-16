@@ -30,7 +30,7 @@ const Card = ({ id, title, price, description, image }) => {
 					<div>
 						<button onClick={()=> {
 							if (quantity === 0) return ;
-							addItem({id, title, price, quantity})
+							addItem({id, title, price, image, quantity})
 							setQuantity(0);
 						}} className="bg-black text-white font-medium py-2 px-4 rounded-md cursor-pointer w-full">Add to Card</button>
 					</div>
