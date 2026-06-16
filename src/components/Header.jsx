@@ -12,7 +12,7 @@ const Header = ({ lenProducts = 0 }) => {
 					</h1>
 				</div>
 				<nav className='flex gap-1.5 items-center'>
-					<Link className='hover:text-red-600 font-medium' to='home'>Home</Link>
+					<Link className='hover:text-red-600 font-medium' to='/'>Home</Link>
 					<Link className='hover:text-red-600 font-medium' to='shop'>Shop</Link>
 					<Link className='bg-black text-white py-2 px-4 rounded-xl font-medium flex items-center gap-2 hover:text-white hover:bg-red-600' to='cart'>
 						Cart
