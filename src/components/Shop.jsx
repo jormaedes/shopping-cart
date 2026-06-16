@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Card from "./Card";
 
 const Shop = () => {
 	const [loading, setLoading] = useState(true);
@@ -19,12 +20,14 @@ const Shop = () => {
 	}, [])
 
 	if (loading) return (<h2>Loading</h2>);
-	
+
 	if (error) return (<h2>Error</h2>);
 
 	return (
 		<main>
-			<h2>Shop</h2>
+			<div className="container mx-auto justify-between flex-wrap flex gap-0.5">
+				{products.map((item) => <Card key={item.id} title={item.title} price={item.price} description={item.description} image={item.image} />)}
+			</div>
 		</main>
 	);
 };
