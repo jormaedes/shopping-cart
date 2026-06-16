@@ -1,6 +1,9 @@
 import { Link } from 'react-router';
+import useCartStore from '../store/useCartStore';
+const Header = () => {
+	const { getTotalItems } = useCartStore();
 
-const Header = ({ lenProducts = 0 }) => {
+	let lenProducts = getTotalItems();
 	return (
 		<header className='shadow-md'>
 			<div className='flex justify-between container mx-auto items-center min-h-[6vh]'>
