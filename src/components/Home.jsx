@@ -8,7 +8,7 @@ const Home = () => {
 			</h2>
 			<p>Your global grocery store — find anything and everything you need.</p>
 			<div>
-				<Link className="bg-red-600 py-2 px-4 rounded-md hover:bg-red-800" to='shop'>Start Shopping</Link>
+				<Link className="text-white font-medium bg-red-600 py-2 px-4 rounded-md hover:bg-red-800" to='shop'>Start Shopping</Link>
 			</div>
 		</main>
 	);
