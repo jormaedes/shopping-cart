@@ -26,6 +26,30 @@ const useCartStore = create((set, get) => ({
 		}))
 	},
 
+	updateItem(id, flag) {
+		const items =  get().items;
+		const existing = items.find((i) => i.id === id);
+		if (flag < 0 && existing.quantity == 1)
+		{
+			get().removeItem(id);
+			return ;
+		}
+		set({
+			items: items.map((i)=>
+				i.id === id? {...i, quantity: i.quantity + flag} : i
+			)
+		})
+	},
+
+	incrementProduct(id, qtd) {
+		const items = get().items;
+		set({
+			items: items.map((i)=>
+				id === i.id? {...i, quantity: qtd} : i
+			)
+		})
+	},
+
 	clearCart: () => set({ items: [] }),
 
 	getTotalItems: () => get().items.reduce((acc, i) => acc + i.quantity, 0),
