@@ -1,9 +1,10 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import useCartStore from '../store/useCartStore';
 import CardToBuy from './CardToBuy';
 
 const Cart = () => {
 	const { items, clearCart, getTotalPrice } = useCartStore();
+	const navigate = useNavigate();
 
 	if (items.length === 0) {
 		return (
@@ -25,7 +26,7 @@ const Cart = () => {
 				<div className='lg:col-span-2'>
 					<div className='space-y-4'>
 						{
-							items.map((item) => <CardToBuy quantity={item.quantity} price={item.price} image={item.image} id={item.id} title={item.title} />)
+							items.map((item) => <CardToBuy key={item.id}  quantity={item.quantity} price={item.price} image={item.image} id={item.id} title={item.title} />)
 						}
 					</div>
 				</div>
@@ -38,7 +39,12 @@ const Cart = () => {
 							<span>${getTotalPrice().toFixed(2)}</span>
 						</div>
 					</div>
-					<button className='w-full bg-black text-white py-3 rounded-md font-bold mb-2'>
+					<button onClick={ ()  => {
+						alert("Thanks for buy here. Always come back");
+						clearCart();
+						navigate('/');
+					}
+					} className='w-full bg-black text-white py-3 rounded-md font-bold mb-2'>
 						Finalize Purchase
 					</button>
 					<Link to='/shop' className='block text-center py-2 text-black border border-black rounded-md font-medium'>
