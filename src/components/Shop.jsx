@@ -25,7 +25,7 @@ const Shop = () => {
 
 	return (
 		<main>
-			<div className="container mx-auto justify-center flex-wrap flex gap-1.5">
+			<div className="container mx-auto justify-center flex-wrap flex gap-10">
 				{products.map((item) => <Card key={item.id} id={item.id} title={item.title} price={item.price} description={item.description} image={item.image} />)}
 			</div>
 		</main>
