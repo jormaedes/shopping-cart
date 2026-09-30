@@ -2,14 +2,26 @@ import { Link } from "react-router";
 
 const Home = () => {
 	return (
-		<main className="min-h-[94vh] bg-cover bg-[url(/bg.jpg)] text-black flex justify-center items-center flex-col text-center gap-4">
-			<h2 className="text-3xl md:text-5xl font-extrabold text-white">Welcome to <span>Online</span>
-				<span className='text-red-600'>Shop</span>
-			</h2>
-			<p className="text-white font-medium">Your global grocery store — find anything and everything you need.</p>
-			<div>
-				<Link className="text-white font-medium bg-red-600 py-2 px-4 rounded-md hover:bg-red-800" to='shop'>Start Shopping</Link>
-			</div>
+		<main className="home-page">
+			<section className="home-hero">
+				<div className="hero-copy">
+					<p className="eyebrow hero-eyebrow"><span className="status-dot" /> A CURATED LITTLE CORNER OF THE INTERNET</p>
+					<h1>Good things,<br /><em>found here.</em></h1>
+					<p className="hero-description">A thoughtful mix of everyday essentials and pieces that make the everyday feel special.</p>
+					<Link className="hero-cta" to="/shop">Explore the collection <i className="ri-arrow-right-line" aria-hidden="true" /></Link>
+					<div className="hero-caption"><span>01 — 24</span><span>GOOD THINGS, EVERY DAY</span></div>
+				</div>
+				<div className="hero-visual" aria-label="Online Shop collection" role="img">
+					<div className="hero-image-label"><span>THE EVERYDAY EDIT</span><span>VOL. 01 / 2026</span></div>
+					<div className="hero-stamp"><span>MADE FOR</span><strong>your<br />everyday</strong><i className="ri-arrow-down-right-line" /></div>
+				</div>
+			</section>
+			<section className="home-note" aria-label="Shop values">
+				<p><span>01</span> Thoughtful finds</p>
+				<p><span>02</span> Everyday favourites</p>
+				<p><span>03</span> A little joy, delivered</p>
+				<Link to="/shop">Browse all <i className="ri-arrow-right-up-line" aria-hidden="true" /></Link>
+			</section>
 		</main>
 	);
 };

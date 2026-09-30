@@ -1,27 +1,25 @@
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import useCartStore from '../store/useCartStore';
-const Header = () => {
+const Header = ({ onOpenCart }) => {
 	const { getTotalItems } = useCartStore();
 
 	let lenProducts = getTotalItems();
 	return (
-		<header className='shadow-md'>
-			<div className='flex justify-between container mx-auto items-center min-h-[6vh]'>
-				<div>
-					<h1 className='font-bold text-xl'>
-						<i className="ri-store-2-fill"></i>
-						<span>Online</span>
-						<span className='text-red-600'>Shop</span>
-					</h1>
-				</div>
-				<nav className='flex gap-1.5 items-center'>
-					<Link className='hover:text-red-600 font-medium' to='/'>Home</Link>
-					<Link className='hover:text-red-600 font-medium' to='shop'>Shop</Link>
-					<Link className='bg-black text-white py-2 px-4 rounded-xl font-medium flex items-center gap-2 hover:text-white hover:bg-red-600' to='cart'>
-						Cart
-						{lenProducts > 0 && <span className='text-[11px] rounded-full px-1.5 bg-white text-black'>{lenProducts}</span>}
-					</Link>
+		<header className="site-header">
+			<div className="header-inner">
+				<Link className="brand-mark" to="/" aria-label="Online Shop home">
+					<span className="brand-icon"><i className="ri-store-2-fill" aria-hidden="true" /></span>
+					<span>online<span className="brand-accent">shop</span></span>
+				</Link>
+				<nav className="main-nav" aria-label="Main navigation">
+					<NavLink to="/" end className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Home</NavLink>
+					<NavLink to="/shop" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Shop</NavLink>
 				</nav>
+				<button className="header-cart" type="button" onClick={onOpenCart} aria-label={`Open cart, ${lenProducts} items`}>
+					<span className="cart-label">Bag</span>
+					<i className="ri-shopping-bag-3-line" aria-hidden="true" />
+					<span className="cart-count" aria-live="polite">{lenProducts}</span>
+				</button>
 			</div>
 		</header>
 	);
