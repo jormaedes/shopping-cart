@@ -1,5 +1,5 @@
 .app-shell { min-height: 100vh; overflow: clip; }
-.site-header { height: 78px; background: rgba(247, 246, 243, .94); border-bottom: 1px solid var(--line); position: relative; z-index: 5; }
+.site-header { height: 78px; background: rgba(247, 246, 243, .94); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
 .header-inner { width: min(1320px, calc(100% - 80px)); height: 100%; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; }
 .brand-mark { display: inline-flex; align-items: center; gap: 10px; width: fit-content; font-size: 18px; font-weight: 700; letter-spacing: -.6px; }
 .brand-icon { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: white; background: var(--red); font-size: 15px; }
